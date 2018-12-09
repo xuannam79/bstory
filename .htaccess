@@ -1,0 +1,15 @@
+# Bật thay đổi đường dẫn : On
+RewriteEngine On 
+# Dấu / giữa các file
+RewriteBase /
+# Viết luật cho các đường dẫn của dự án 
+# index.php?page=3 => page/1 , page/2
+RewriteRule ^page/([0-9]*)$ index.php?page=$1
+RewriteRule ^lien-he$ /contact.php?tab=2
+#detail.php?id=32 => /detail/toi-nhu-anh-duong-ruc-ro-32.html
+RewriteRule ^detail/(.*)-([0-9]*).html /detail.php?id=$2
+# .* đại diện cho một chuỗi bất kì
+# Đổi trang cho cat cat.php?id=2&page=2 => /cat/the-thao-2/page/2
+RewriteRule ^cat/(.*)-([0-9]*)/page/([0-9]*) /cat.php?id=$2&page=$3
+# /cat.php?id=2 => /cat/thoi-su-2
+RewriteRule ^cat/(.*)-([0-9]*) /cat.php?id=$2
